@@ -9,15 +9,38 @@ on:
     branches:
       - main
 
+
+env:
+  PROJECT_VERSION: 1.0.0
+  MAVEN_OPTS: -Dmaven.repo.local=~/.m2/repository
+
 jobs:
 
-  test:
+  mise-en-place:
     name: job de test
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
 
     steps:
-      - run: echo "bonsoir
-    
+      - name: test
+        run: echo "bonsoir
+
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.5.0
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Cache
+        uses: actions/cache@v4.1.2
+        with:
+          path: /home/runner/work/lib
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+
+      - name: tests maven
+        run: mvn test $MAVEN_OPTS
     
     
     
