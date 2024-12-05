@@ -21,9 +21,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: test
-        run: echo "bonsoir
-
       - name: Checkout
         uses: actions/checkout@v4.2.2
 
