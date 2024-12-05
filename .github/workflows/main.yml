@@ -1,0 +1,23 @@
+name: Todo list workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  test:
+    name: job de test
+    runs-on: ubuntu:latest
+
+    steps:
+      - run: echo "bonsoir
+    
+    
+    
+    
